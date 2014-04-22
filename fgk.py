@@ -119,16 +119,6 @@ class FGK(object):
         return result
 
 
-def encode(text):
-    encoder = FGK()
-    return encoder.encode(text)
-
-
-def decode(text):
-    decoder = FGK()
-    return decoder.decode(text)
-
-
 def main(argv):
     try:
         opts, args = getopt.getopt(argv, "e:d:")
@@ -141,11 +131,11 @@ def main(argv):
         if opt == '-e':
             with open(arg) as f:
                 text = f.read()
-            result = encode(text)
+            result = FGK().encode(text)
         elif opt == '-d':
             with open(arg) as f:
                 text = f.read()
-            result = decode(text)
+            result = FGK().decode(text)
 
     print result
 
